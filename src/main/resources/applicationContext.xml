@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+    <!--Создание бина через его конструктор-->
+    <!--    <bean id="testBean" class="sevryugin.spring.TestBean">-->
+    <!--    <constructor-arg value="value"/>-->
+    <!--    </bean>-->
+    <!--Создание объекта с использованием конструктора и ссылки на другой объект-->
+    <!--    <bean id="musicBean" class="sevryugin.spring.music.ClassicalMusic">-->
+    <!--    </bean>-->
+    <!--    <bean id="musicPlayer" class="sevryugin.spring.music.MusicPlayer">-->
+    <!--        <constructor-arg ref="musicBean"/>-->
+    <!--    </bean>-->
+    <!--Внедрение зависимости через setter-->
+    <!--        <bean id="musicBean" class="sevryugin.spring.music.ClassicalMusic">-->
+    <!--        </bean>-->
+    <!--        <bean id="musicPlayer" class="sevryugin.spring.music.MusicPlayer">-->
+    <!--            <property name="music" ref="musicBean"/>-->
+    <!--            <property name="name" value="some name"/>-->
+    <!--            <property name="volume" value="50"/>-->
+    <!--        </bean>-->
+    <!--Внедрение зависимости через setter из файла проперти (scope = singleton)-->
+    <context:property-placeholder location="MusicPlayer.properties"/>
+    <bean id="classicalMusic"
+          class="sevryugin.spring.music.ClassicalMusic"
+          scope="singleton"
+          init-method="init"
+          destroy-method="destroy"
+    />
+    <bean id="rockMusic"
+          class="sevryugin.spring.music.RockMusic"
+          scope="singleton"
+          init-method="init"
+          destroy-method="destroy"
+    />
+    <bean id="musicPlayer"
+          class="sevryugin.spring.music.MusicPlayer"
+          scope="prototype"
+          init-method="init"
+          destroy-method="destroy"
+    >
+        <property name="musicList">
+            <list value-type="sevryugin.spring.music.Music">
+                <ref bean="classicalMusic"/>
+                <ref bean="rockMusic"/>
+            </list>
+        </property>
+        <property name="name" value="${musicPlayer.name}"/>
+        <property name="volume" value="${musicPlayer.volume}"/>
+    </bean>
+</beans>
