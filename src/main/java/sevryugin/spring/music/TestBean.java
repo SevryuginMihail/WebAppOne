@@ -1,4 +1,4 @@
-package sevryugin.spring;
+package sevryugin.spring.music;
 
 import lombok.Data;
 

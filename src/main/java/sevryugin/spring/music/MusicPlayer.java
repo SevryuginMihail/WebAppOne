@@ -13,7 +13,7 @@ import javax.annotation.Resource;
  *
  * @author Mihail_Sevryugin
  */
-//@Component
+@Component
 public class MusicPlayer {
 
     //    private List<Music> musicList = new ArrayList<>();
@@ -112,7 +112,7 @@ public class MusicPlayer {
 
     // 12 lesson
     @Autowired
-    @Qualifier("rockMusic")
+    @Qualifier("classicalMusic")
     private Music music;
     @Value("${musicPlayer.name}")
     private String name;

@@ -5,7 +5,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
     <!--Создание бина через его конструктор-->
-    <!--    <bean id="testBean" class="sevryugin.spring.TestBean">-->
+    <!--    <bean id="testBean" class="sevryugin.spring.music.TestBean">-->
     <!--    <constructor-arg value="value"/>-->
     <!--    </bean>-->
     <!--Создание объекта с использованием конструктора и ссылки на другой объект-->

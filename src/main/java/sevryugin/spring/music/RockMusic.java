@@ -15,7 +15,7 @@ import java.util.Random;
  *
  * @author Mihail_Sevryugin
  */
-//@Component
+@Component
 @Scope("prototype")
 public class RockMusic implements Music {
 

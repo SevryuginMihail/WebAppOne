@@ -1,6 +1,7 @@
-package sevryugin.spring;
+package sevryugin.spring.music;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import sevryugin.spring.music.TestBean;
 
 /**
  * TestSpring.

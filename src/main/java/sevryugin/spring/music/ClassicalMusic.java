@@ -12,7 +12,7 @@ import javax.annotation.PreDestroy;
  *
  * @author Mihail_Sevryugin
  */
-//@Component
+@Component
 @Scope("prototype")
 public class ClassicalMusic implements Music {
     public ClassicalMusic() {}// поменял обратно на public
