@@ -1,3 +1,4 @@
+/*https://www.youtube.com/watch?v=MVbBLoZrT2A&list=PLAma_mKffTOR5o0WNHnY0mTjKxnCgSXrZ&index=8*/
 package sevryugin.spring.music;
 
 import lombok.Data;
@@ -28,12 +29,27 @@ public class TestMusic {
 //        musicPlayer.playMusic();
 //        context.close();
         // Разбор scope : singleton and prototype
-        MusicPlayer firstMusicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
-        MusicPlayer secondMusicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
-        boolean comparison = firstMusicPlayer == secondMusicPlayer;
-        System.out.println(comparison);
-        System.out.println(firstMusicPlayer);
-        System.out.println(secondMusicPlayer);
+//        MusicPlayer firstMusicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
+//        MusicPlayer secondMusicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
+//        boolean comparison = firstMusicPlayer == secondMusicPlayer;
+//        System.out.println(comparison);
+//        System.out.println(firstMusicPlayer);
+//        System.out.println(secondMusicPlayer);
+//        context.close();
+        // Использование factory-method
+//        ClassicalMusic classicalMusic = context.getBean("classicalMusic",ClassicalMusic.class);
+//        System.out.println(classicalMusic.getSong());
+//        context.close();
+        // Использование аннотации @Component
+//        RockMusic rockMusic = context.getBean("rockMusic",RockMusic.class);
+//        System.out.println(rockMusic.getSong());
+//        context.close();
+        // Использование аннотации @Autowired и @Component(MusicPlayer только с одним полем)
+//        MusicPlayer musicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
+//        musicPlayer.playMusic();
+        //
+        Computer computer=context.getBean("computer",Computer.class);
+        System.out.println(computer.toString());
         context.close();
     }
 }

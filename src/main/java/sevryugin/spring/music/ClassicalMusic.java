@@ -1,6 +1,7 @@
 package sevryugin.spring.music;
 
 import lombok.Data;
+import org.springframework.stereotype.Component;
 
 /**
  * ClassicalMusic.
@@ -8,18 +9,23 @@ import lombok.Data;
  * @author Mihail_Sevryugin
  */
 @Data
+@Component
 public class ClassicalMusic implements Music {
+    public ClassicalMusic() {
+    }// поменял обратно на public
+
+    public static ClassicalMusic getClassicalMusic() {
+        return new ClassicalMusic();
+    }
+
     @Override
     public String getSong() {
         return "Moon";
     }
 
-//    @Override
     public void init() {
         System.out.println("Init ClassicalMusic bean");
     }
-
-//    @Override
 
     public void destroy() {
         System.out.println("Destroy ClassicalMusic bean");

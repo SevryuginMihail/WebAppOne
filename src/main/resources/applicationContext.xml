@@ -23,32 +23,40 @@
     <!--            <property name="volume" value="50"/>-->
     <!--        </bean>-->
     <!--Внедрение зависимости через setter из файла проперти (scope = singleton)-->
-    <context:property-placeholder location="MusicPlayer.properties"/>
-    <bean id="classicalMusic"
-          class="sevryugin.spring.music.ClassicalMusic"
-          scope="singleton"
-          init-method="init"
-          destroy-method="destroy"
-    />
-    <bean id="rockMusic"
-          class="sevryugin.spring.music.RockMusic"
-          scope="singleton"
-          init-method="init"
-          destroy-method="destroy"
-    />
-    <bean id="musicPlayer"
-          class="sevryugin.spring.music.MusicPlayer"
-          scope="prototype"
-          init-method="init"
-          destroy-method="destroy"
-    >
-        <property name="musicList">
-            <list value-type="sevryugin.spring.music.Music">
-                <ref bean="classicalMusic"/>
-                <ref bean="rockMusic"/>
-            </list>
-        </property>
-        <property name="name" value="${musicPlayer.name}"/>
-        <property name="volume" value="${musicPlayer.volume}"/>
-    </bean>
+    <!--    <context:property-placeholder location="MusicPlayer.properties"/>-->
+    <!--    <bean id="classicalMusic"-->
+    <!--          class="sevryugin.spring.music.ClassicalMusic"-->
+    <!--          scope="prototype"-->
+    <!--          init-method="init"-->
+    <!--          destroy-method="destroy"-->
+    <!--    />-->
+    <!--    <bean id="rockMusic"-->
+    <!--          class="sevryugin.spring.music.RockMusic"-->
+    <!--          scope="prototype"-->
+    <!--          init-method="init"-->
+    <!--          destroy-method="destroy"-->
+    <!--    />-->
+    <!--    <bean id="musicPlayer"-->
+    <!--          class="sevryugin.spring.music.MusicPlayer"-->
+    <!--          scope="prototype"-->
+    <!--          init-method="init"-->
+    <!--          destroy-method="destroy">-->
+    <!--        <property name="musicList">-->
+    <!--            <list value-type="sevryugin.spring.music.Music">-->
+    <!--                <ref bean="classicalMusic"/>-->
+    <!--                <ref bean="rockMusic"/>-->
+    <!--            </list>-->
+    <!--        </property>-->
+    <!--        <property name="name" value="${musicPlayer.name}"/>-->
+    <!--        <property name="volume" value="${musicPlayer.volume}"/>-->
+    <!--    </bean>-->
+    <!--Использование фабричного метода для создания бина ClassicalMusic(конструктор стал приватным)-->
+    <!--        <bean id="classicalMusic"-->
+    <!--              class="sevryugin.spring.music.ClassicalMusic"-->
+    <!--              init-method="init"-->
+    <!--              destroy-method="destroy"-->
+    <!--              factory-method="getClassicalMusic"-->
+    <!--        />-->
+    <!--    Аннотаци.Введение-->
+    <context:component-scan base-package="sevryugin.spring"/>
 </beans>
