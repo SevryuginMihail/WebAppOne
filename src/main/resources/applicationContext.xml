@@ -23,7 +23,7 @@
     <!--            <property name="volume" value="50"/>-->
     <!--        </bean>-->
     <!--Внедрение зависимости через setter из файла проперти (scope = singleton)-->
-    <!--    <context:property-placeholder location="MusicPlayer.properties"/>-->
+    <!--    <context:property-placeholder location="musicPlayer.properties"/>-->
     <!--    <bean id="classicalMusic"-->
     <!--          class="sevryugin.spring.music.ClassicalMusic"-->
     <!--          scope="prototype"-->
@@ -59,4 +59,5 @@
     <!--        />-->
     <!--    Аннотаци.Введение-->
     <context:component-scan base-package="sevryugin.spring"/>
+    <context:property-placeholder location="musicPlayer.properties"/>
 </beans>

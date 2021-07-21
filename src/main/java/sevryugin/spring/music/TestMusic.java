@@ -2,6 +2,7 @@
 package sevryugin.spring.music;
 
 import lombok.Data;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
@@ -12,7 +13,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 @Data
 public class TestMusic {
     public static void main(String[] args) {
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+//        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 
 //        Music music;
 //        music = context.getBean("musicBean",Music.class);
@@ -47,9 +48,18 @@ public class TestMusic {
         // Использование аннотации @Autowired и @Component(MusicPlayer только с одним полем)
 //        MusicPlayer musicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
 //        musicPlayer.playMusic();
-        //
-        Computer computer=context.getBean("computer",Computer.class);
-        System.out.println(computer.toString());
-        context.close();
+//        context.close();
+//        Computer computer=context.getBean("computer",Computer.class);
+//        System.out.println(computer.toString());
+//        context.close();
+        // @Qualifier - еще задание к 11 уроку
+//        MusicPlayer musicPlayer = context.getBean("musicPlayer",MusicPlayer.class);
+//        System.out.println(musicPlayer.toString());
+//        context.close();
+        // Полностью ушли от XML
+        AnnotationConfigApplicationContext configApplicationContext = new AnnotationConfigApplicationContext(SpringConfig.class);
+        MusicPlayer musicPlayer = configApplicationContext.getBean("musicPlayer",MusicPlayer.class);
+        System.out.println(musicPlayer.toString());
+        configApplicationContext.close();
     }
 }

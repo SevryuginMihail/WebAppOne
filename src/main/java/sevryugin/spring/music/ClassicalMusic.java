@@ -1,18 +1,21 @@
 package sevryugin.spring.music;
 
 import lombok.Data;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
+
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 
 /**
  * ClassicalMusic.
  *
  * @author Mihail_Sevryugin
  */
-@Data
-@Component
+//@Component
+@Scope("prototype")
 public class ClassicalMusic implements Music {
-    public ClassicalMusic() {
-    }// поменял обратно на public
+    public ClassicalMusic() {}// поменял обратно на public
 
     public static ClassicalMusic getClassicalMusic() {
         return new ClassicalMusic();
@@ -23,11 +26,13 @@ public class ClassicalMusic implements Music {
         return "Moon";
     }
 
-    public void init() {
-        System.out.println("Init ClassicalMusic bean");
+    @PostConstruct
+    public void init(){
+        System.out.println("init ClassicalMusic");
     }
 
-    public void destroy() {
-        System.out.println("Destroy ClassicalMusic bean");
+    @PreDestroy
+    public void destroy(){
+        System.out.println("destroy ClassicalMusic");
     }
 }
