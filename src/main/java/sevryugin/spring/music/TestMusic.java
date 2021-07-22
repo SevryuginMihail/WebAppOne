@@ -1,16 +1,13 @@
 /*https://www.youtube.com/watch?v=MVbBLoZrT2A&list=PLAma_mKffTOR5o0WNHnY0mTjKxnCgSXrZ&index=8*/
 package sevryugin.spring.music;
 
-import lombok.Data;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  * TestMusic.
  *
  * @author Mihail_Sevryugin
  */
-@Data
 public class TestMusic {
     public static void main(String[] args) {
 //        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");

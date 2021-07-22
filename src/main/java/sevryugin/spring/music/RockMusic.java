@@ -1,6 +1,5 @@
 package sevryugin.spring.music;
 
-import lombok.Data;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 

@@ -11,8 +11,8 @@ import org.springframework.context.annotation.PropertySource;
  * @author Mihail_Sevryugin
  */
 @Configuration
-@ComponentScan("sevryugin.spring")
-@PropertySource("musicPlayer.properties")
+@ComponentScan(basePackages = {"sevryugin.spring.*"})
+@PropertySource("classpath:musicPlayer.properties")
 public class SpringConfig {
 
 //    @Bean
